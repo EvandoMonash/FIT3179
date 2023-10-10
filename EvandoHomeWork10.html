@@ -77,6 +77,46 @@
       <div id="vis" class="vis-container"></div>
     </div>
 
+    <br>
+
+    <div class="pure-g">
+      <div class="pure-u-1-2">
+        <h2>Netflix Pricing and Content Library Analysis</h2>
+        <p>This interactive visualization comprises two side-by-side scatter plots,
+          each representing different aspects of Netflix's offerings in various countries.
+          The data is sourced from a CSV file hosted online, and users can select a specific
+          country or view data for all countries using a dropdown menu.</p>
+
+        <h4>1. TV Shows Analysis (Left Plot - Blue Circles)</h4>
+        <ul>
+          <li><b>X-Axis (Horizontal)</b>: Represents the 'Total Library Size' in each country. This indicates the total
+            number of titles (both TV shows and movies) available in Netflix's library for that country.</li>
+          <li><b>Y-Axis (Vertical)</b>: Represents the 'Cost Per Month - Standard ($)' in each country. This is the
+            monthly subscription cost for the standard plan in US dollars.</li>
+          <li><b>Size of Circle</b>: Indicates the 'Number of TV Shows' available in that country. A larger circle means
+            a greater number of TV shows.</li>
+          <li><b>Color</b>: All circles are blue for easy differentiation from the next plot.</li>
+          <li><b>Tooltip</b>: Hovering over a circle provides additional details such as the country name, total library
+            size, monthly cost, and the number of TV shows.</li>
+        </ul>
+
+        <h4>2. Movies Analysis (Right Plot - Red Circles)</h4>
+        <ul>
+          <li><b>X-Axis (Horizontal)</b>: Same as the left plot, it represents the 'Total Library Size'.</li>
+          <li><b>Y-Axis (Vertical)</b>: Represents the 'Cost Per Month - Standard ($)'.</li>
+          <li><b>Size of Circle</b>: Indicates the 'Number of Movies' available in that country. A larger circle means a
+            greater number of movies.</li>
+          <li><b>Color</b>: All circles are red to differentiate from the TV shows plot.</li>
+          <li><b>Tooltip</b>: Provides details such as the country name, total library size, monthly cost, and the
+            number of movies.</li>
+        </ul>
+
+        <p><b>Interactivity and Filters</b>: A dropdown menu titled 'Select Country' allows users to filter the data for
+          a specific country or view data for all countries. When a country is selected, only data points relevant to
+          that country will be displayed on both plots.</p>
+      </div>
+    </div>
+
     <div class="pure-u-1-2">
       <div id="vis2" class="vis-container"></div>
     </div>
