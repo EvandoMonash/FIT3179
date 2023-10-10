@@ -382,12 +382,6 @@
       };
       vegaEmbed("#vis", spec, { mode: "vega-lite" }).then(console.log).catch(console.warn);
 
-      <div id="vis" />
-
-    </script>
-
-    <div id="vis2" />
-    <script>
       const spec2 = {
         "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
         "data": { "url": "https://raw.githubusercontent.com/EvandoMonash/FIT3179/main/netflix%20price%20in%20different%20countries.csv", "format": { "type": "csv" } },
@@ -553,8 +547,6 @@
         ]
       };
       vegaEmbed("#vis2", spec2, { mode: "vega-lite" }).then(console.log).catch(console.warn);
-
-      <div id="vis2" />
 
     </script>
 </body>
