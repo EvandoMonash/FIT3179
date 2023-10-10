@@ -75,6 +75,8 @@
     <br>
     <div class="pure-u-1-2">
       <div id="vis" class="vis-container"></div>
+      <div id="vis2" class="vis-container"></div>
+
     </div>
     <!-- end pure grid group -->
 
@@ -376,6 +378,180 @@
         "config": {}
       };
       vegaEmbed("#vis", spec, { mode: "vega-lite" }).then(console.log).catch(console.warn);
+
+      <div id="vis" />
+
+    </script>
+
+    <script>
+      const spec2 = {
+        "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+        "data": { "url": "https://raw.githubusercontent.com/EvandoMonash/FIT3179/main/netflix%20price%20in%20different%20countries.csv", "format": { "type": "csv" } },
+
+        "params": [
+          {
+            "name": "CountrySelector",
+            "bind": {
+              "input": "select",
+              "options": ["All", "Argentina",
+                "Australia",
+                "Austria",
+                "Belgium",
+                "Bolivia",
+                "Brazil",
+                "Bulgaria",
+                "Canada",
+                "Chile",
+                "Colombia",
+                "Costa Rica",
+                "Croatia",
+                "Czechia",
+                "Denmark",
+                "Ecuador",
+                "Estonia",
+                "Finland",
+                "France",
+                "Germany",
+                "Gibraltar",
+                "Greece",
+                "Guatemala",
+                "Honduras",
+                "Hong Kong",
+                "Hungary",
+                "Iceland",
+                "India",
+                "Indonesia",
+                "Ireland",
+                "Israel",
+                "Italy",
+                "Japan",
+                "Latvia",
+                "Liechtenstein",
+                "Lithuania",
+                "Malaysia",
+                "Mexico",
+                "Moldova",
+                "Monaco",
+                "Netherlands",
+                "New Zealand",
+                "Norway",
+                "Paraguay",
+                "Peru",
+                "Philippines",
+                "Poland",
+                "Portugal",
+                "Romania",
+                "Russia",
+                "San Marino",
+                "Singapore",
+                "Slovakia",
+                "South Africa",
+                "South Korea",
+                "Spain",
+                "Sweden",
+                "Switzerland",
+                "Taiwan",
+                "Thailand",
+                "Turkey",
+                "Ukraine",
+                "United Kingdom",
+                "United States of America",
+                "Uruguay",
+                "Venezuela"],
+              "name": "Select Country"
+            }
+          }
+        ],
+        "hconcat": [
+          {
+            "width": 500,
+            "height": 400,
+            "mark": "circle",
+            "encoding": {
+              "x": {
+                "field": "Total Library Size",
+                "type": "quantitative",
+                "title": "Total Library Size"
+
+              },
+              "y": {
+                "field": "Cost Per Month - Standard ($)",
+                "type": "quantitative",
+                "title": "Cost Per Month - Standard ($)"
+              },
+              "size": {
+                "field": "No. of TV Shows",
+                "type": "quantitative",
+                "title": "No. of TV Shows"
+              },
+              "color": {
+                "value": "blue"
+              },
+              "tooltip": [
+                { "field": "Country", "type": "nominal" },
+                { "field": "Total Library Size", "type": "quantitative" },
+                { "field": "Cost Per Month - Standard ($)", "type": "quantitative" },
+                { "field": "No. of TV Shows", "type": "quantitative" }
+              ]
+            },
+            "transform": [
+              {
+                "aggregate": [{ "op": "sum", "field": "No. of TV Shows", "as": "No. of TV Shows" }],
+                "groupby": ["Country", "Total Library Size", "Cost Per Month - Standard ($)"]
+              },
+              {
+                "filter": "datum.Country === CountrySelector || CountrySelector === 'All'"
+              }
+            ]
+          },
+          {
+            "width": 500,
+            "height": 400,
+            "mark": "circle",
+            "encoding": {
+              "x": {
+                "field": "Total Library Size",
+                "type": "quantitative",
+                "title": "Total Library Size"
+
+              },
+              "y": {
+                "field": "Cost Per Month - Standard ($)",
+                "type": "quantitative",
+                "title": "Cost Per Month - Standard ($)"
+              },
+              "size": {
+                "field": "No. of Movies",
+                "type": "quantitative",
+                "title": "No. of Movies"
+              },
+              "color": {
+                "value": "red"
+              },
+              "tooltip": [
+                { "field": "Country", "type": "nominal" },
+                { "field": "Total Library Size", "type": "quantitative" },
+                { "field": "Cost Per Month - Standard ($)", "type": "quantitative" },
+                { "field": "No. of Movies", "type": "quantitative" }
+              ]
+
+            },
+            "transform": [
+              {
+                "aggregate": [{ "op": "sum", "field": "No. of Movies", "as": "No. of Movies" }],
+                "groupby": ["Country", "Total Library Size", "Cost Per Month - Standard ($)"]
+              },
+              {
+                "filter": "datum.Country === CountrySelector || CountrySelector === 'All'"
+              }
+            ]
+          }
+        ]
+      };
+      vegaEmbed("#vis", spec, { mode: "vega-lite" }).then(console.log).catch(console.warn);
+
+      <div id="vis2" />
+
     </script>
 </body>
 
